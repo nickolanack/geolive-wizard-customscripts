@@ -35,6 +35,9 @@ var transitionType=wizardDataSet.Attribute_newsAttributes_Object.transitionType;
 var name='';
 if(layer.getName()=='Newspapers'){
  var paperType=wizardDataSet.Attribute_newsAttributes_Object.paperType;
+ if((typeof paperType.length)=="number"){
+  paperType=paperType[0];
+ }
  name=paperType+" : "+transitionType;
 
 }else if(layer.getName()=='Online News'){
@@ -49,6 +52,9 @@ if(layer.getName()=='Newspapers'){
 name="radio - "+radioType+" : "+transitionType;
 }else if(layer.getName()=='Television'){
  var tvType=wizardDataSet.Attribute_newsAttributes_Object.tvType;
+ if((typeof tvType.length)=="number"){
+  tvType=tvType[0];
+ }
  name="TV - "+tvType+" : "+transitionType;
 }else{
  alert("Icon map script is broken, has the layer list or names changed");
