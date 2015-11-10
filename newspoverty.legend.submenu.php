@@ -1,5 +1,28 @@
 <script type="text/javascript">
 
+// function(element, layer){
+
+<?php 
+
+IncludeCSSBlock('
+
+.submenu-icon{
+    margin: 0;
+    display: inline-block;
+    width: 100px;
+}
+.submenu-icon>li{
+    float: left;
+    list-style: none;
+}
+.submenu-icon>li>img{
+    height: 20px;
+}
+
+');
+
+?>
+
 //generated map from import tool
 var iconSetNameMap={ 
   'Television':{
@@ -32,7 +55,7 @@ var iconSetNameMap={
     "daily paper - paid : new outlet produced by merger": "components\/com_geolive\/users_files\/user_files_400\/Uploads\/[G]_ytA_531_[ImAgE]_04.png",
     "daily paper - paid : daily becomes a community paper": "components\/com_geolive\/users_files\/user_files_400\/Uploads\/PYa_[ImAgE]_kk8_[G]_lV6.png"
   },
-  'Online':{
+  'Online News':{
     "online : closed": "components\/com_geolive\/users_files\/user_files_400\/Uploads\/[G]_L9q_GPZ_[ImAgE]_CSi.png",
     "online : new": "components\/com_geolive\/users_files\/user_files_400\/Uploads\/[G]_Qrd_6BY_[ImAgE]_FYG.png",
     "online : increase in service": "components\/com_geolive\/users_files\/user_files_400\/Uploads\/SPT_WE6_[ImAgE]_XPb_[G].png",
@@ -50,15 +73,35 @@ var iconSetNameMap={
   }
 }
 
-var list=new Element('ul');
-Object.keys(iconSetNameMap[layer.getName()]).forEach(function(key){
+var list=new Element('ul', {"class":"submenu-icon"});
+var layerName=layer.getName();
+var iconSet=iconSetNameMap[layerName];
+var icons=Object.keys(iconSet);
+icons.forEach(function(key){
 
-var icon=iconSetNameMap[layer.getName()][key];
+var icon=iconSet[key];
 var li=new Element('li');
 li.appendChild(new Asset.image(icon));
-
-list.inject(element,'after');
+new UIPopover(li,{title:'', description:'Map Icons with this symbol indicate ...', anchor:UIPopover.AnchorTo('bottom')});
+list.appendChild(li);
 
 });
+list.inject(element,'after');
+
+// }
+
+</script>
+
+
+
+
+<script type="text/javascript">
+    
+// function(element){
+
+    var title=new Element('h3',{html:"Map Content"});
+    title.inject(element, 'top');
+
+// }
 
 </script>
