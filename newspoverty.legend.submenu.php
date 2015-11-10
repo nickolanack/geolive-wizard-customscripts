@@ -122,3 +122,26 @@ list.inject(element,'after');
 // }
 
 </script>
+
+
+
+<script type="text/javascript">
+    
+// function(latlng, iconUrl, defaultBehaviorFn){
+
+    var userIsGuest=<?php 
+        echo json_encode(Core::Client()->isGuest());
+    ?>;
+
+    if(userIsGuest){
+        alert('login first');
+    }else{
+        defaultBehaviorFn();
+    }
+
+    var title=new Element('h3',{html:"Map Legend", "class":'legend-title'});
+    title.inject(element, 'top');
+
+// }
+
+</script>
