@@ -123,8 +123,6 @@ list.inject(element,'after');
 
 </script>
 
-
-
 <script type="text/javascript">
     
 // function(latlng, iconUrl, defaultBehaviorFn){
@@ -134,13 +132,11 @@ list.inject(element,'after');
     ?>;
 
     if(userIsGuest){
-        alert('login first');
+        //from another script
+        window.openLoginWindow(); 
     }else{
         defaultBehaviorFn();
     }
-
-    var title=new Element('h3',{html:"Map Legend", "class":'legend-title'});
-    title.inject(element, 'top');
 
 // }
 
