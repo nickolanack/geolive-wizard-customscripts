@@ -46,11 +46,13 @@ var layer=MapFactory.BestLayerFromIcon(item,  map.getNamedValue("IconSets"), {ic
 
 var transitionType=wizardDataSet.Attribute_newsAttributes_Object.transitionType;
 var name='';
+
 if(layer.getName()=='Newspapers'){
  var paperType=wizardDataSet.Attribute_newsAttributes_Object.paperType;
  if((typeof paperType.length)=="number"){
   paperType=paperType[0];
 }
+
 name=paperType+" : "+transitionType;
 
 }else if(layer.getName()=='Online News'){
