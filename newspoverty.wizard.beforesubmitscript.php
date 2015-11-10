@@ -42,7 +42,6 @@ var iconSetNameMap={
   "radio - public : closed": "components\/com_geolive\/users_files\/user_files_400\/Uploads\/[ImAgE]_[G]_CHO_gOM_tjn.png"
 }
 
-
 var layer=MapFactory.BestLayerFromIcon(item,  map.getNamedValue("IconSets"), {icon:wizardDataSet.icon||item.getIcon()});
 
 var transitionType=wizardDataSet.Attribute_newsAttributes_Object.transitionType;
