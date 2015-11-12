@@ -8,15 +8,16 @@ IncludeCSSBlock('
 
 .submenu-icon{
     margin: 0;
-    display: inline-block;
-    width: 100px;
+    display: block;
+    width: 190px;
+    margin-top: 10px;
 }
 .submenu-icon>li{
     float: left;
     list-style: none;
 }
 .submenu-icon>li>img{
-    height: 20px;
+    height: 32px;
 }
 
 ');
@@ -73,19 +74,23 @@ var iconSetNameMap={
 }
 
 var list=new Element('ul', {"class":"submenu-icon"});
-var layerName=layer.getName();
+var layerName=layerMetadata.name;//layer.getName();
 var iconSet=iconSetNameMap[layerName];
 var icons=Object.keys(iconSet);
 icons.forEach(function(key){
 
-var icon=iconSet[key];
-var li=new Element('li');
-li.appendChild(new Asset.image(icon));
-new UIPopover(li,{title:'', description:'Map icons with this symbol indicate a '+key, anchor:UIPopover.AnchorTo('right')});
-list.appendChild(li);
+    var icon=iconSet[key];
+    var li=new Element('li');
+    li.appendChild(new Asset.image(icon));
+    //new UIPopover(li,{title:'', description:'Map icons with this symbol indicate a '+key, anchor:UIPopover.AnchorTo('right')});
+    list.appendChild(li);
 
 });
-list.inject(element,'after');
+//list.inject(element,'after');
+
+var div=new Element('div',{html:layerMetadata.description, style:'display:inline-table;'});
+div.appendChild(list);
+popover.setText(div);
 
 // }
 
@@ -106,8 +111,8 @@ list.inject(element,'after');
 
             font-weight: 100;
             margin: 5px;
-            color: rgb(130, 51, 130);
-            font-size: 16px;
+            color: #444444;
+            font-size: 15px;
             text-shadow: 0 0 1px rgba(0,0,0,0.4);
 
         }
