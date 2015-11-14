@@ -1,8 +1,7 @@
 <script type="text/javascript">
 
 // function(element, layer){
-
-<?php 
+<?php
 
 IncludeCSSBlock('
 
@@ -25,7 +24,7 @@ IncludeCSSBlock('
 ?>
 
 //generated map from import tool
-var iconSetNameMap={ 
+var iconSetNameMap={
   'Television':{
     "new private TV station": "components\/com_geolive\/users_files\/user_files_400\/Uploads\/Fxs_[G]_jHI_[ImAgE]_buK.png",
     "private TV station that closed": "components\/com_geolive\/users_files\/user_files_400\/Uploads\/ga_wNP_K7a_[ImAgE]_[G].png",
@@ -87,6 +86,7 @@ icons.forEach(function(key){
 
 });
 //list.inject(element,'after');
+//
 
 var div=new Element('div',{html:layerMetadata.description, style:'display:inline-table;'});
 div.appendChild(list);
@@ -100,12 +100,12 @@ popover.setText(div);
 
 
 <script type="text/javascript">
-    
+
 // function(element){
 
-    <?php 
+    <?php
 
-    IncludeCSSBlock('
+IncludeCSSBlock('
 
         .legend-title{
 
@@ -119,7 +119,7 @@ popover.setText(div);
 
     ')
 
-    ?>
+?>
 
     var title=new Element('h3',{html:"Map Legend", "class":'legend-title'});
     title.inject(element, 'top');
@@ -129,16 +129,16 @@ popover.setText(div);
 </script>
 
 <script type="text/javascript">
-    
+
 // function(latlng, iconUrl, defaultBehaviorFn){
 
-    var userIsGuest=<?php 
-        echo json_encode(Core::Client()->isGuest());
-    ?>;
+    var userIsGuest=<?php
+echo json_encode(Core::Client()->isGuest());
+?>;
 
     if(userIsGuest){
         //from another script
-        window.openLoginWindow(); 
+        window.openLoginWindow();
     }else{
         defaultBehaviorFn();
     }
