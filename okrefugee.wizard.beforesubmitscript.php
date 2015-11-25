@@ -17,3 +17,5 @@ switch(layer.getName()){
 		break;
 
 }
+
+</script>
