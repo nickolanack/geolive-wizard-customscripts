@@ -43,6 +43,8 @@ switch(layer.getName()){
 var published="everyone";
 var unpublished="just coordinators, and me";
 
+wizardDataSet.readAccess="public";
+
 var defaultValue=published;
 
 var setPublishedTo=function(v){
