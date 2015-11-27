@@ -61,6 +61,7 @@ return (new TagCloudSelectionModule(application, item, {
 		shuffle:false,
         maxSelected:1,
         label:'Who can see this item',
+        minScale:15,
         className:'tags-publish'
 	})).addEvent('change',function(selection){
 
