@@ -81,3 +81,21 @@ return (new TagCloudSelectionModule(application, item, {
 	});
 
 </script>
+
+
+<script type="text/javascript">
+
+
+	var tips = {
+		"components/com_geolive/users_files/user_files_982/Uploads/jvR_[G]_gYt_[ImAgE]_pU8.png":['Housing', 'Locations of housing'],
+		"components/com_geolive/users_files/user_files_982/Uploads/EcI_pte_[ImAgE]_6XO_[G].png":['Services', 'Locations that offer services'],
+		"components/com_geolive/users_files/user_files_982/Uploads/[G]_8cV_7Py_G7E_[ImAgE].png":['Household Items', 'Resources and Household items'],
+		"components/com_geolive/users_files/user_files_982/Uploads/7S2_[ImAgE]_[G]_O2S_lAA.png":['Employment', 'Employment Opportunities'],
+		"components/com_geolive/users_files/user_files_982/Uploads/3y3_8G9_[G]_[ImAgE]_wHJ.png":['Volunteering', 'Volunteering Oportunities']
+	};
+
+	var tip=tips[options.icon];
+	popover.setTitle(tip[0]);
+	popover.setText(tip[1]);
+
+</script>
