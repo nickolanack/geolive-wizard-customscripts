@@ -156,30 +156,46 @@ echo json_encode(Core::Client()->isGuest());
 IncludeCSSBlock('
 
 .legend-layer-detail{
-    width:300px;
+    width:310px;
+    margin-top: 10px;
+    text-align:center;
 }
 .l-tbl{
     display:table;
-    width:90%;
+    width:93%;
+    margin-top: 10px;
+    border-top: 1px solid cornflowerblue;
+    text-align:left;
 }
 .l-lft{
     display:table-cell;
-    vertical-align:center;
-    width:30%;
+    vertical-align:middle;
+    width:40%;
+    text-align: center;
 }
 .l-rht{
     display:table-cell;
-    width:70%;
+    width:60%;
+    vertical-align:middle;
 }
 
 .l-rht img{
     width:30px;
     height:auto;
     display: inline-block;
+    margin-right: 10px;
 }
 
 .l-rht label {
     display: inline-block;
+}
+
+.l-rht>div {
+    margin: 20px;
+}
+
+.l-tbl label {
+    color: white;
 }
 
 ');
@@ -192,7 +208,7 @@ var layerDetailMap={
   'Television':{
     html:'<div class="l-lft">'+
             '<label>Public TV Station</label><img src="http://newspoverty.geolive.ca/administrator/components/com_geolive/users_files/user_files_400/Uploads/[G]_ITb_SS6_[ImAgE]_LWT.png">'+
-            '<label>Private TV Station</label><img src="http://newspoverty.geolive.ca/components/com_geolive/users_files/user_files_400/Uploads/Qa5_[G]_[ImAgE]_4Ah_oTD.png?thumb=%3E200x%3E150">'+
+            '<label>Private TV Station</label><img src="http://newspoverty.geolive.ca/components/com_geolive/users_files/user_files_400/Uploads/Qa5_[G]_[ImAgE]_4Ah_oTD.png">'+
         '</div><div class="l-rht">'+
             '<div><img src="http://newspoverty.geolive.ca/administrator/components/com_geolive/users_files/user_files_400/Uploads/[G]_W0v_B5_yuK_[ImAgE].png"><label>New</label></div>'+
             '<div><img src="http://newspoverty.geolive.ca/administrator/components/com_geolive/users_files/user_files_400/Uploads/grw_0dl_[ImAgE]_cu4_[G].png"><label>Increase</label></div>'+
@@ -201,13 +217,40 @@ var layerDetailMap={
         '</div>'
   },
   'Newspapers':{
-    html:''
+    html:'<div class="l-lft">'+
+            '<label>Free Daily Paper</label><img src="http://newspoverty.geolive.ca/administrator/components/com_geolive/users_files/user_files_400/Uploads/[G]_F7F_WJc_C6j_[ImAgE].png">'+
+            '<label>Community Paper</label><img src="http://newspoverty.geolive.ca/administrator/components/com_geolive/users_files/user_files_400/Uploads/lQO_[G]_zUZ_[ImAgE]_FQv.png">'+
+            '<label>Paid Daily Paper</label><img src="http://newspoverty.geolive.ca/administrator/components/com_geolive/users_files/user_files_400/Uploads/4jQ_ULS_[G]_[ImAgE]_l92.png">'+
+        '</div><div class="l-rht">'+
+            '<div><img src="http://newspoverty.geolive.ca/administrator/components/com_geolive/users_files/user_files_400/Uploads/[G]_W0v_B5_yuK_[ImAgE].png"><label>New</label></div>'+
+            '<div><img src="http://newspoverty.geolive.ca/administrator/components/com_geolive/users_files/user_files_400/Uploads/grw_0dl_[ImAgE]_cu4_[G].png"><label>Increase</label></div>'+
+            '<div><img src="http://newspoverty.geolive.ca/administrator/components/com_geolive/users_files/user_files_400/Uploads/[G]_hVp_WtL_VlO_[ImAgE].png"><label>Decrease</label></div>'+
+            '<div><img src="http://newspoverty.geolive.ca/administrator/components/com_geolive/users_files/user_files_400/Uploads/zf0_[ImAgE]_Dj9_[G]_Ogd.png"><label>Closed</label></div>'+
+            '<div><img src="http://newspoverty.geolive.ca/components/com_geolive/users_files/user_files_400/Uploads/[G]_[ImAgE]_y8s_wIS_0KD.png"><label>Merged Closed</label></div>'+
+            '<div><img src="http://newspoverty.geolive.ca/components/com_geolive/users_files/user_files_400/Uploads/MqZ_2D9_[G]_zSz_[ImAgE].png"><label>Merged Opened</label></div>'+
+            '<div><img src="http://newspoverty.geolive.ca/components/com_geolive/users_files/user_files_400/Uploads/Tij_[G]_[ImAgE]_nkF_db1.png"><label>Transitioned</label></div>'+
+        '</div>'
   },
   'Online News':{
-    html:''
+    html:'<div class="l-lft">'+
+            '<label>Online News</label><img src="http://newspoverty.geolive.ca/administrator/components/com_geolive/users_files/user_files_400/Uploads/gdZ_kvi_[G]_Ka7_[ImAgE].png">'+
+        '</div><div class="l-rht">'+
+            '<div><img src="http://newspoverty.geolive.ca/administrator/components/com_geolive/users_files/user_files_400/Uploads/[G]_W0v_B5_yuK_[ImAgE].png"><label>New</label></div>'+
+            '<div><img src="http://newspoverty.geolive.ca/administrator/components/com_geolive/users_files/user_files_400/Uploads/grw_0dl_[ImAgE]_cu4_[G].png"><label>Increase</label></div>'+
+            '<div><img src="http://newspoverty.geolive.ca/administrator/components/com_geolive/users_files/user_files_400/Uploads/[G]_hVp_WtL_VlO_[ImAgE].png"><label>Decrease</label></div>'+
+            '<div><img src="http://newspoverty.geolive.ca/administrator/components/com_geolive/users_files/user_files_400/Uploads/zf0_[ImAgE]_Dj9_[G]_Ogd.png"><label>Closed</label></div>'+
+        '</div>'
   },
   'Radio':{
-    html:''
+    html:'<div class="l-lft">'+
+            '<label>Public Radio</label><img src="http://newspoverty.geolive.ca/administrator/components/com_geolive/users_files/user_files_400/Uploads/[ImAgE]_[G]_WNv_exD_hzn.png">'+
+            '<label>Private Radio</label><img src="http://newspoverty.geolive.ca/components/com_geolive/users_files/user_files_400/Uploads/[ImAgE]_zp_[G]_8J5_V8w.png">'+
+        '</div><div class="l-rht">'+
+            '<div><img src="http://newspoverty.geolive.ca/administrator/components/com_geolive/users_files/user_files_400/Uploads/[G]_W0v_B5_yuK_[ImAgE].png"><label>New</label></div>'+
+            '<div><img src="http://newspoverty.geolive.ca/administrator/components/com_geolive/users_files/user_files_400/Uploads/grw_0dl_[ImAgE]_cu4_[G].png"><label>Increase</label></div>'+
+            '<div><img src="http://newspoverty.geolive.ca/administrator/components/com_geolive/users_files/user_files_400/Uploads/[G]_hVp_WtL_VlO_[ImAgE].png"><label>Decrease</label></div>'+
+            '<div><img src="http://newspoverty.geolive.ca/administrator/components/com_geolive/users_files/user_files_400/Uploads/zf0_[ImAgE]_Dj9_[G]_Ogd.png"><label>Closed</label></div>'+
+        '</div>'
   }
 }
 
