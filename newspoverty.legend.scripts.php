@@ -1,5 +1,5 @@
 <script type="text/javascript">
-
+//@depracated
 // function(element, layer){
 <?php
 
@@ -144,5 +144,79 @@ echo json_encode(Core::Client()->isGuest());
     }
 
 // }
+
+</script>
+
+
+<script type="text/javascript">
+
+
+<?php
+
+IncludeCSSBlock('
+
+.legend-layer-detail{
+    width:300px;
+}
+.l-tbl{
+    display:table;
+    width:90%;
+}
+.l-lft{
+    display:table-cell;
+    vertical-align:center;
+    width:30%;
+}
+.l-rht{
+    display:table-cell;
+    width:70%;
+}
+
+.l-rht img{
+    width:30px;
+    height:auto;
+    display: inline-block;
+}
+
+.l-rht label {
+    display: inline-block;
+}
+
+');
+
+?>
+
+
+//generated map from import tool
+var layerDetailMap={
+  'Television':{
+    html:'<div class="l-lft">'+
+            '<label>Public TV Station</label><img src="http://newspoverty.geolive.ca/administrator/components/com_geolive/users_files/user_files_400/Uploads/[G]_ITb_SS6_[ImAgE]_LWT.png">'+
+            '<label>Private TV Station</label><img src="http://newspoverty.geolive.ca/components/com_geolive/users_files/user_files_400/Uploads/Qa5_[G]_[ImAgE]_4Ah_oTD.png?thumb=%3E200x%3E150">'+
+        '</div><div class="l-rht">'+
+            '<div><img src="http://newspoverty.geolive.ca/administrator/components/com_geolive/users_files/user_files_400/Uploads/[G]_W0v_B5_yuK_[ImAgE].png"><label>New</label></div>'+
+            '<div><img src="http://newspoverty.geolive.ca/administrator/components/com_geolive/users_files/user_files_400/Uploads/grw_0dl_[ImAgE]_cu4_[G].png"><label>Increase</label></div>'+
+            '<div><img src="http://newspoverty.geolive.ca/administrator/components/com_geolive/users_files/user_files_400/Uploads/[G]_hVp_WtL_VlO_[ImAgE].png"><label>Decrease</label></div>'+
+            '<div><img src="http://newspoverty.geolive.ca/administrator/components/com_geolive/users_files/user_files_400/Uploads/zf0_[ImAgE]_Dj9_[G]_Ogd.png"><label>Closed</label></div>'+
+        '</div>'
+  },
+  'Newspapers':{
+    html:''
+  },
+  'Online News':{
+    html:''
+  },
+  'Radio':{
+    html:''
+  }
+}
+
+var layerName=layerMetadata.name;//layer.getName();
+var detail=new Element('span', {html:layerDetailMap[layerName].html, 'class':'l-tbl'});
+
+
+var div=new Element('div',{html:layerMetadata.description, style:'display:inline-table;', 'class':'legend-layer-detail'});
+div.appendChild(detail);
+popover.setText(div);
 
 </script>
