@@ -1,6 +1,7 @@
 <script type="text/javascript">
-//@depracated
-// function(element, layer){
+
+//@depracated this is not used. it was intended to be the custom legend
+
 <?php
 
 IncludeCSSBlock('
@@ -101,8 +102,9 @@ popover.setText(div);
 
 <script type="text/javascript">
 
-// function(element){
-
+/**
+ * this script adds a legend title.
+ */
     <?php
 
 IncludeCSSBlock('
@@ -130,11 +132,14 @@ IncludeCSSBlock('
 
 <script type="text/javascript">
 
-// function(latlng, iconUrl, defaultBehaviorFn){
+
+/**
+ * This script overrides the default map login behavior to use a site login function
+ */
 
     var userIsGuest=<?php
-echo json_encode(Core::Client()->isGuest());
-?>;
+    echo json_encode(Core::Client()->isGuest());
+    ?>;
 
     if(userIsGuest){
         //from another script
@@ -150,6 +155,9 @@ echo json_encode(Core::Client()->isGuest());
 
 <script type="text/javascript">
 
+/**
+ * this script draws custom legend detail views for each layer
+ */
 
 <?php
 
@@ -202,8 +210,6 @@ IncludeCSSBlock('
 
 ?>
 
-
-//generated map from import tool
 var layerDetailMap={
   'Television':{
     html:'<div class="l-lft">'+
