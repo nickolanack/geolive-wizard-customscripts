@@ -210,12 +210,18 @@ IncludeCSSBlock('
 .newspapers.popover>.tip,.newspapers.popover{
     max-width: 400px;
 }
-{
-    max-width: 400px;
-}
+
 .newspapers .legend-layer-detail{
     width:400px;
 
+}
+
+.radio.popover>.tip, .radio.popover, .television.popover>.tip, .television.popover{
+    max-width: 350px;
+}
+
+.radio .legend-layer-detail, .television .legend-layer-detail{
+    width:350px;
 }
 
 ');
