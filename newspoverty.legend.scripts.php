@@ -207,6 +207,17 @@ IncludeCSSBlock('
     color: white;
 }
 
+.newspapers.popover>.tip,.newspapers.popover{
+    max-width: 400px;
+}
+{
+    max-width: 400px;
+}
+.newspapers .legend-layer-detail{
+    width:400px;
+
+}
+
 ');
 
 ?>
@@ -260,11 +271,13 @@ var layerDetailMap={
 }
 
 var layerName=layerMetadata.name;//layer.getName();
+var cssName=layerName.replace(' ' ,'-').toLowerCase();
 var detail=new Element('span', {html:layerDetailMap[layerName].html, 'class':'l-tbl'});
 
 
 var div=new Element('div',{html:layerMetadata.description, style:'display:inline-table;', 'class':'legend-layer-detail'});
 div.appendChild(detail);
 popover.setText(div);
+popover.options.className=popover.options.className+' '+cssName;
 
 </script>
