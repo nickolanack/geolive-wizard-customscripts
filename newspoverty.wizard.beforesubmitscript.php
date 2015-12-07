@@ -49,27 +49,20 @@ var name='';
 
 if(layer.getName()=='Newspapers'){
  var paperType=wizardDataSet.Attribute_newsAttributes_Object.paperType;
- if((typeof paperType.length)=="number"){
-  paperType=paperType[0];
-}
 
 name=paperType+" : "+transitionType;
 
-}else if(layer.getName()=='Online News'){
+}else if(layer.getName()=='Online news'){
 
  name="online : "+transitionType;
 
 }else if(layer.getName()=='Radio'){
  var radioType=wizardDataSet.Attribute_newsAttributes_Object.radioType;
- if((typeof radioType.length)=="number"){
-  radioType=radioType[0];
-}
+
 name="radio - "+radioType+" : "+transitionType;
 }else if(layer.getName()=='Television'){
- var tvType=wizardDataSet.Attribute_newsAttributes_Object.tvType;
- if((typeof tvType.length)=="number"){
-  tvType=tvType[0];
-}
+ var tvType=wizardDataSet.Attribute_newsAttributes_Object.tyType;
+
 name="TV - "+tvType+" : "+transitionType;
 }else{
  alert("Icon map script is broken, has the layer list or names changed");
