@@ -51,7 +51,7 @@ var setPublishedTo=function(v){
 	if(v==published){
 		wizardDataSet.readAccess="public"
 	}else{
-		wizardDataSet.readAccess="special"
+		wizardDataSet.readAccess="fb-member"
 	}
 };
 
