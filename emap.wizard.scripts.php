@@ -174,3 +174,33 @@ return d;
 
 
 </script>
+
+
+
+
+
+<script type="text/javascript">
+  
+
+
+   var locationSearch=new GoogleSearch(item.getLatLng().toString());
+   locationSearch.addEvent('onSuccess',function(a){
+   console.debug(a);
+      /* the title should be right above this script module */
+      var titleModule=moduleGroup[moduleIndex-1].TextFieldModule;
+      if(titleModule.getValue()==false||titleModule.getValue()==""){
+
+         if(a.length){
+            var s=JSTextUtilities.FormatGoogleGeolocation(a, [
+                'locality, administrative_area_level_1',
+                'administrative_area_level_2,  administrative_area_level_1',
+                'formatted_address'
+            ]);
+            titleModule.setValue(s);
+         }
+      }
+   });
+   locationSearch.execute();
+
+  
+</script>
