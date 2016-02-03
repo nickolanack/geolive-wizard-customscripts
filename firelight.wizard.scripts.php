@@ -1,7 +1,7 @@
 <script type="text/javascript">
 
 var ul=new Element('ul', {'class':''});
-var li=new Element('li', {'class':'WizardButton submit disabled', style:'margin: 10px 0;'});
+var li=new Element('li', {'class':'WizardButton disabled', style:'margin: 10px 0;'});
 var txt=new Element('span', {'class':'btn-label', html:'preview'});
 
 ul.appendChild(li);
@@ -60,6 +60,8 @@ Extends:GeoliveLayer,
 
 });
 
+var layers=[];
+
 
 
 li.addEvent('click',function(){
@@ -73,15 +75,22 @@ li.addEvent('click',function(){
 
 
 
-			new ProposalLayer(map, {
+			layers.push(new ProposalLayer(map, {
 				url:url
-			});
+			}));
 
 
 
 		});
-
 	}
+});
+
+wizard.addEvent('resume',function(){
+	Array.each(layers,function(layer){
+		layer.hide();
+	});
+	wizard.viewer.pushbox.win.setStyle('display', null);
+	wizard.viewer.pushbox.overlay.setStyle('display', null);
 });
 
 previous.TextFieldModule.addEvent('change', updateButton);
