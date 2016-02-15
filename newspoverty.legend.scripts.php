@@ -126,6 +126,7 @@ IncludeCSSBlock('
 
     var title=new Element('h3',{html:"Legend", "class":'legend-title'});
     title.inject(element, 'top');
+    new UIPopover(title,{title:'', description:'Turn these filters on and off to view changes by media type', anchor:UIPopover.AnchorTo('right')});
 
 // }
 
@@ -223,6 +224,11 @@ IncludeCSSBlock('
 .radio .legend-layer-detail, .television .legend-layer-detail{
     width:350px;
 }
+span.layer-title {
+    margin-right: 10px;
+    text-align: left;
+    display: block;
+}
 
 ');
 
@@ -281,7 +287,7 @@ var cssName=layerName.replace(' ' ,'-').toLowerCase();
 var detail=new Element('span', {html:layerDetailMap[layerName].html, 'class':'l-tbl'});
 
 
-var div=new Element('div',{html:layerMetadata.description, style:'display:inline-table;', 'class':'legend-layer-detail'});
+var div=new Element('div',{html:'<span class="layer-title">'+layerMetadata.description+'</span>', style:'display:inline-table;', 'class':'legend-layer-detail'});
 div.appendChild(detail);
 popover.setText(div);
 popover.options.className=popover.options.className+' '+cssName;
