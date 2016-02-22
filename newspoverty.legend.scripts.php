@@ -293,3 +293,73 @@ popover.setText(div);
 popover.options.className=popover.options.className+' '+cssName;
 
 </script>
+
+
+<script type="text/javascript">
+    
+    tile.addEvent('click',function(){
+
+tile.setImage("<?php echo UrlFrom(Core::AssetsDir().DS.'Tile Icons'.DS.'help.png').'?tint=rgb(255, 255, 255)'; ?>");
+ PushBoxWindow.open("http://newspoverty.geolive.ca/help.html",{handler:"iframe", size:{x:700,y:450}});
+});
+
+
+</script>
+
+
+<script type="text/javascript">
+    
+    var isDisplayingTutorial=false;
+
+    var style=[
+  {
+    "featureType": "landscape",
+    "stylers": [
+      { "visibility": "off" }
+    ]
+  },{
+    "elementType": "labels",
+    "stylers": [
+      { "visibility": "off" }
+    ]
+  },{
+    "featureType": "water",
+    "elementType": "labels",
+    "stylers": [
+      { "visibility": "off" }
+    ]
+  },{
+    "featureType": "water",
+    "stylers": [
+      { "color": "#9bcdd7" }
+    ]
+  },{
+  }
+];
+
+    tile.addEvent('click',function(){
+
+        if(!isDisplayingTutorial){
+            isDisplayingTutorial=true;
+            map.setMode('tutorial', {
+                disablesControls: true,
+                suppressEvents:true,
+                control:control,
+                events:{
+                }
+            })
+
+           map.getBaseMap().setOptions({styles: style});
+
+        }else{
+            isDisplayingTutorial=false;
+             map.clearMode('tutorial');
+             map.getBaseMap().setOptions({styles: null});
+
+        }
+
+
+    });
+
+    
+</script>
