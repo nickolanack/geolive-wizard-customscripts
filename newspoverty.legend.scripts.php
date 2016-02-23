@@ -140,8 +140,8 @@ IncludeCSSBlock('
  */
 
     var userIsGuest=<?php
-    echo json_encode(Core::Client()->isGuest());
-    ?>;
+echo json_encode(Core::Client()->isGuest());
+?>;
 
     if(userIsGuest){
         //from another script
@@ -296,10 +296,10 @@ popover.options.className=popover.options.className+' '+cssName;
 
 
 <script type="text/javascript">
-    
+
     tile.addEvent('click',function(){
 
-tile.setImage("<?php echo UrlFrom(Core::AssetsDir().DS.'Tile Icons'.DS.'help.png').'?tint=rgb(255, 255, 255)'; ?>");
+tile.setImage("<?php echo UrlFrom(Core::AssetsDir() . DS . 'Tile Icons' . DS . 'help.png') . '?tint=rgb(255, 255, 255)'; ?>");
  PushBoxWindow.open("http://newspoverty.geolive.ca/help.html",{handler:"iframe", size:{x:700,y:450}});
 });
 
@@ -308,7 +308,7 @@ tile.setImage("<?php echo UrlFrom(Core::AssetsDir().DS.'Tile Icons'.DS.'help.png
 
 
 <script type="text/javascript">
-    
+
     var isDisplayingTutorial=false;
 
     var style=[
@@ -339,6 +339,9 @@ tile.setImage("<?php echo UrlFrom(Core::AssetsDir().DS.'Tile Icons'.DS.'help.png
 
     tile.addEvent('click',function(){
 
+
+
+
         if(!isDisplayingTutorial){
             isDisplayingTutorial=true;
             map.setMode('tutorial', {
@@ -351,6 +354,53 @@ tile.setImage("<?php echo UrlFrom(Core::AssetsDir().DS.'Tile Icons'.DS.'help.png
 
            map.getBaseMap().setOptions({styles: style});
 
+
+           var positionList=['RIGHT_CENTER', 'BOTTOM_CENTER', 'LEFT_CENTER', 'TOP_CENTER']
+           var displayHelp=function(anchor){
+
+                var anchorTo=[];
+                if(anchor.indexOf('BOTTOM')>=0){
+                    anchorTo=['top'];
+                }else if(anchor.indexOf('TOP')>=0){
+                    anchorTo=['bottom'];
+                }else if(anchor.indexOf('LEFT')>=0){
+                    anchorTo=['right'];
+                }else if(anchor.indexOf('RIGHT')>=0){
+                    anchorTo=['left'];
+                }
+
+                var position=google.maps.ControlPosition[anchor]
+
+                var current=[];
+                Array.each(UIMapControl.AllControls(), function(c) {
+                    console.log(c);
+                    var pos=c.getPosition();
+                    if(pos===position){
+                        c.getElement().addClass('show-help');
+                        current.push(c);
+                    }else{
+                        c.getElement().removeClass('show-help');
+                    }
+               });
+
+               var index=Math.floor((current.length-1)/2.0);
+               var popover=new UIPopover(current[index].getElement(),{
+                title:'here is a text bubble that will be interactive',
+                content:new Element('a', {html:'next', events:{click:function(){
+
+                     displayHelp(positionList.shift());
+
+
+                }}}),
+                anchor:UIPopover.AnchorTo(anchorTo)
+               });
+
+               popover.show();
+
+            }
+            displayHelp(positionList.shift());
+
+
         }else{
             isDisplayingTutorial=false;
              map.clearMode('tutorial');
@@ -361,5 +411,5 @@ tile.setImage("<?php echo UrlFrom(Core::AssetsDir().DS.'Tile Icons'.DS.'help.png
 
     });
 
-    
+
 </script>
