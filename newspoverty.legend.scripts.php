@@ -311,48 +311,35 @@ tile.setImage("<?php echo UrlFrom(Core::AssetsDir() . DS . 'Tile Icons' . DS . '
 
     var isDisplayingTutorial=false;
 
-    var style=[
-  {
-    "featureType": "landscape",
-    "stylers": [
-      { "visibility": "off" }
-    ]
-  },{
-    "elementType": "labels",
-    "stylers": [
-      { "visibility": "off" }
-    ]
-  },{
-    "featureType": "water",
-    "elementType": "labels",
-    "stylers": [
-      { "visibility": "off" }
-    ]
-  },{
-    "featureType": "water",
-    "stylers": [
-      { "color": "#9bcdd7" }
-    ]
-  },{
-  }
-];
+    var style=[{"featureType":"water","elementType":"geometry","stylers":[{"color":"#e9e9e9"},{"lightness":17}]},{"featureType":"landscape","elementType":"geometry","stylers":[{"color":"#f5f5f5"},{"lightness":20}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#ffffff"},{"lightness":17}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#ffffff"},{"lightness":29},{"weight":0.2}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#ffffff"},{"lightness":18}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#ffffff"},{"lightness":16}]},{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#f5f5f5"},{"lightness":21}]},{"featureType":"poi.park","elementType":"geometry","stylers":[{"color":"#dedede"},{"lightness":21}]},{"elementType":"labels.text.stroke","stylers":[{"visibility":"on"},{"color":"#ffffff"},{"lightness":16}]},{"elementType":"labels.text.fill","stylers":[{"saturation":36},{"color":"#333333"},{"lightness":40}]},{"elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"geometry","stylers":[{"color":"#f2f2f2"},{"lightness":19}]},{"featureType":"administrative","elementType":"geometry.fill","stylers":[{"color":"#fefefe"},{"lightness":20}]},{"featureType":"administrative","elementType":"geometry.stroke","stylers":[{"color":"#fefefe"},{"lightness":17},{"weight":1.2}]}];
+  
+   
 
     tile.addEvent('click',function(){
 
 
 
+        var finishTutorial=function(){
+
+            isDisplayingTutorial=false;
+            map.clearMode('tutorial');
+            map.getBaseMap().setOptions({styles: null});
+
+        };
 
         if(!isDisplayingTutorial){
             isDisplayingTutorial=true;
             map.setMode('tutorial', {
                 disablesControls: true,
                 suppressEvents:true,
-                control:control,
+              //  control:control,
+                fadesContent:true, 
                 events:{
                 }
             })
 
-           map.getBaseMap().setOptions({styles: style});
+            map.getBaseMap().setOptions({styles: style});
+            map.getBaseMap().setOptions({draggable: false, zoomControl: false, scrollwheel: false, disableDoubleClickZoom: true});
 
 
            var positionList=['RIGHT_CENTER', 'BOTTOM_CENTER', 'LEFT_CENTER', 'TOP_CENTER']
@@ -385,11 +372,15 @@ tile.setImage("<?php echo UrlFrom(Core::AssetsDir() . DS . 'Tile Icons' . DS . '
 
                var index=Math.floor((current.length-1)/2.0);
                var popover=new UIPopover(current[index].getElement(),{
-                title:'here is a text bubble that will be interactive',
-                content:new Element('a', {html:'next', events:{click:function(){
+                clickable:true,
+                content:new Element('a', {html:(positionList.length?'next':'finish'), events:{click:function(){
 
-                     displayHelp(positionList.shift());
-
+                    if(positionList.length){
+                        displayHelp(positionList.shift());
+                    }else{
+                        finishTutorial();
+                        popover.hide();
+                    }
 
                 }}}),
                 anchor:UIPopover.AnchorTo(anchorTo)
@@ -402,10 +393,8 @@ tile.setImage("<?php echo UrlFrom(Core::AssetsDir() . DS . 'Tile Icons' . DS . '
 
 
         }else{
-            isDisplayingTutorial=false;
-             map.clearMode('tutorial');
-             map.getBaseMap().setOptions({styles: null});
-
+            
+            finishTutorial();
         }
 
 
