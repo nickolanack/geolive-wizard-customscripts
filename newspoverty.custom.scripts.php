@@ -308,97 +308,151 @@ tile.setImage("<?php echo UrlFrom(Core::AssetsDir() . DS . 'Tile Icons' . DS . '
 
 
 <script type="text/javascript">
+/**
+ * Wizard Custom Script. beforeSubmit
+ */
+//generated map from import tool
+var iconSetNameMap={
+  "TV - private : new": "components\/com_geolive\/users_files\/user_files_400\/Uploads\/Fxs_[G]_jHI_[ImAgE]_buK.png",
+  "TV - private : closed": "components\/com_geolive\/users_files\/user_files_400\/Uploads\/ga_wNP_K7a_[ImAgE]_[G].png",
+  "TV - private : decrease in service": "components\/com_geolive\/users_files\/user_files_400\/Uploads\/[G]_lo2_phB_jMK_[ImAgE].png",
+  "TV - private : increase in service": "components\/com_geolive\/users_files\/user_files_400\/Uploads\/VXX_LBi_BZ7_[G]_[ImAgE].png",
+  "TV - public : new": "components\/com_geolive\/users_files\/user_files_400\/Uploads\/7j8_[ImAgE]_0W3_[G]_EKx.png",
+  "TV - public : closed": "components\/com_geolive\/users_files\/user_files_400\/Uploads\/[G]_fe3_DIh_m6r_[ImAgE].png",
+  "TV - public : decrease in service": "components\/com_geolive\/users_files\/user_files_400\/Uploads\/[ImAgE]_Kva_[G]_KNi_GhP.png",
+  "TV - public : increase in service": "components\/com_geolive\/users_files\/user_files_400\/Uploads\/[G]_Ti1_cfJ_[ImAgE]_AEg.png",
+  "community paper : closed": "components\/com_geolive\/users_files\/user_files_400\/Uploads\/5EY_bPb_9pu_[G]_[ImAgE].png",
+  "community paper : closed due to merger": "components\/com_geolive\/users_files\/user_files_400\/Uploads\/[ImAgE]_ckm_cLL_[G]_dQ6.png",
+  "community paper : decrease in service": "components\/com_geolive\/users_files\/user_files_400\/Uploads\/[G]_k1v_esb_cE_[ImAgE].png",
+  "community paper : increase in service": "components\/com_geolive\/users_files\/user_files_400\/Uploads\/[G]_Drp_yoW_[ImAgE]_bO8.png",
+  "community paper : new": "components\/com_geolive\/users_files\/user_files_400\/Uploads\/MzA_[G]_[ImAgE]_itZ_37m.png",
+  "community paper : new outlet produced by merger": "components\/com_geolive\/users_files\/user_files_400\/Uploads\/Ffw_[G]_WO_A9_[ImAgE].png",
+  "community paper : shifted to online": "components\/com_geolive\/users_files\/user_files_400\/Uploads\/A5b_[G]_PTW_[ImAgE]_jjt.png",
+  "daily paper - free : closed": "components\/com_geolive\/users_files\/user_files_400\/Uploads\/ESs_jwW_3d_[G]_[ImAgE].png",
+  "daily paper - free : new": "components\/com_geolive\/users_files\/user_files_400\/Uploads\/qIw_uFv_[G]_bsm_[ImAgE].png",
+  "daily paper - free : increase in service": "components\/com_geolive\/users_files\/user_files_400\/Uploads\/Xfp_DTl_[G]_avi_[ImAgE].png",
+  "daily paper - free : decrease in service": "components\/com_geolive\/users_files\/user_files_400\/Uploads\/[ImAgE]_zrH_oVI_BtL_[G].png",
+  "daily paper - free : daily becomes a community paper": "components\/com_geolive\/users_files\/user_files_400\/Uploads\/nPT_[ImAgE]_[G]_HnR_1gp.png",
+  "daily paper - paid : closed": "components\/com_geolive\/users_files\/user_files_400\/Uploads\/95V_k0J_[ImAgE]_EWi_[G].png",
+  "daily paper - paid : new": "components\/com_geolive\/users_files\/user_files_400\/Uploads\/[ImAgE]_[G]_UWx_N5D_OhI.png",
+  "daily paper - paid : closed due to merger": "components\/com_geolive\/users_files\/user_files_400\/Uploads\/Rs8_[G]_LGP_[ImAgE]_cQ5.png",
+  "daily paper - paid : decrease in service": "components\/com_geolive\/users_files\/user_files_400\/Uploads\/[ImAgE]_[G]_mYW_wsV_Jte.png",
+  "daily paper - paid : new outlet produced by merger": "components\/com_geolive\/users_files\/user_files_400\/Uploads\/[G]_ytA_531_[ImAgE]_04.png",
+  "daily paper - paid : daily becomes a community paper": "components\/com_geolive\/users_files\/user_files_400\/Uploads\/PYa_[ImAgE]_kk8_[G]_lV6.png",
+  "online : closed": "components\/com_geolive\/users_files\/user_files_400\/Uploads\/[G]_L9q_GPZ_[ImAgE]_CSi.png",
+  "online : new": "components\/com_geolive\/users_files\/user_files_400\/Uploads\/[G]_Qrd_6BY_[ImAgE]_FYG.png",
+  "online : increase in service": "components\/com_geolive\/users_files\/user_files_400\/Uploads\/SPT_WE6_[ImAgE]_XPb_[G].png",
+  "online : decrease in service": "components\/com_geolive\/users_files\/user_files_400\/Uploads\/08u_[G]_7Ze_[ImAgE]_e4x.png",
+  "radio - private : new": "components\/com_geolive\/users_files\/user_files_400\/Uploads\/[ImAgE]_[G]_gB3_9Vv_ShV.png",
+  "radio - private : decrease in service": "components\/com_geolive\/users_files\/user_files_400\/Uploads\/[G]_FB8_[ImAgE]_XxD_L0W.png",
+  "radio - private : increase in service": "components\/com_geolive\/users_files\/user_files_400\/Uploads\/[G]_[ImAgE]_sbP_IWk_QIL.png",
+  "radio - private : closed": "components\/com_geolive\/users_files\/user_files_400\/Uploads\/qok_qWp_[G]_[ImAgE]_QvV.png",
+  "radio - public : new": "components\/com_geolive\/users_files\/user_files_400\/Uploads\/[ImAgE]_hAM_[G]_Rs0_pRI.png",
+  "radio - public : decrease in service": "components\/com_geolive\/users_files\/user_files_400\/Uploads\/[G]_[ImAgE]_YCD_BF5_H7l.png",
+  "radio - public : increase in service": "components\/com_geolive\/users_files\/user_files_400\/Uploads\/XKD_[G]_[ImAgE]_e3z_Q48.png",
+  "radio - public : closed": "components\/com_geolive\/users_files\/user_files_400\/Uploads\/[ImAgE]_[G]_CHO_gOM_tjn.png"
+}
 
-    var isDisplayingTutorial=false;
+var layer=MapFactory.BestLayerFromIcon(item,  map.getNamedValue("IconSets"), {icon:wizardDataSet.icon||item.getIcon()});
 
-    var style=[{"featureType":"water","elementType":"geometry","stylers":[{"color":"#e9e9e9"},{"lightness":17}]},{"featureType":"landscape","elementType":"geometry","stylers":[{"color":"#f5f5f5"},{"lightness":20}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#ffffff"},{"lightness":17}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#ffffff"},{"lightness":29},{"weight":0.2}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#ffffff"},{"lightness":18}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#ffffff"},{"lightness":16}]},{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#f5f5f5"},{"lightness":21}]},{"featureType":"poi.park","elementType":"geometry","stylers":[{"color":"#dedede"},{"lightness":21}]},{"elementType":"labels.text.stroke","stylers":[{"visibility":"on"},{"color":"#ffffff"},{"lightness":16}]},{"elementType":"labels.text.fill","stylers":[{"saturation":36},{"color":"#333333"},{"lightness":40}]},{"elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"geometry","stylers":[{"color":"#f2f2f2"},{"lightness":19}]},{"featureType":"administrative","elementType":"geometry.fill","stylers":[{"color":"#fefefe"},{"lightness":20}]},{"featureType":"administrative","elementType":"geometry.stroke","stylers":[{"color":"#fefefe"},{"lightness":17},{"weight":1.2}]}];
-  
-   
+var transitionType=wizardDataSet.Attribute_newsAttributes_Object.transitionType;
+var name='';
 
-    tile.addEvent('click',function(){
+if(layer.getName()=='Newspapers'){
+ var paperType=wizardDataSet.Attribute_newsAttributes_Object.paperType;
 
+name=paperType+" : "+transitionType;
 
+}else if(layer.getName()=='Online news'){
 
-        var finishTutorial=function(){
+ name="online : "+transitionType;
 
-            isDisplayingTutorial=false;
-            map.clearMode('tutorial');
-            map.getBaseMap().setOptions({styles: null});
+}else if(layer.getName()=='Radio'){
+ var radioType=wizardDataSet.Attribute_newsAttributes_Object.radioType;
 
-        };
+name="radio - "+radioType+" : "+transitionType;
+}else if(layer.getName()=='Television'){
+ var tvType=wizardDataSet.Attribute_newsAttributes_Object.tyType;
 
-        if(!isDisplayingTutorial){
-            isDisplayingTutorial=true;
-            map.setMode('tutorial', {
-                disablesControls: true,
-                suppressEvents:true,
-              //  control:control,
-                fadesContent:true, 
-                events:{
-                }
-            })
+name="TV - "+tvType+" : "+transitionType;
+}else{
+ alert("Icon map script is broken, has the layer list or names changed");
+}
 
-            map.getBaseMap().setOptions({styles: style});
-            map.getBaseMap().setOptions({draggable: false, zoomControl: false, scrollwheel: false, disableDoubleClickZoom: true});
+alert(name);
+if((typeof iconSetNameMap[name])=="undefined"){
+  alert("Icon map script is broken, generated icon map key: "+name+" is not valid, or missing");
+}else{
+ wizardDataSet.icon=iconSetNameMap[name];
+}
 
-
-           var positionList=['RIGHT_CENTER', 'BOTTOM_CENTER', 'LEFT_CENTER', 'TOP_CENTER']
-           var displayHelp=function(anchor){
-
-                var anchorTo=[];
-                if(anchor.indexOf('BOTTOM')>=0){
-                    anchorTo=['top'];
-                }else if(anchor.indexOf('TOP')>=0){
-                    anchorTo=['bottom'];
-                }else if(anchor.indexOf('LEFT')>=0){
-                    anchorTo=['right'];
-                }else if(anchor.indexOf('RIGHT')>=0){
-                    anchorTo=['left'];
-                }
-
-                var position=google.maps.ControlPosition[anchor]
-
-                var current=[];
-                Array.each(UIMapControl.AllControls(), function(c) {
-                    console.log(c);
-                    var pos=c.getPosition();
-                    if(pos===position){
-                        c.getElement().addClass('show-help');
-                        current.push(c);
-                    }else{
-                        c.getElement().removeClass('show-help');
-                    }
-               });
-
-               var index=Math.floor((current.length-1)/2.0);
-               var popover=new UIPopover(current[index].getElement(),{
-                clickable:true,
-                content:new Element('a', {html:(positionList.length?'next':'finish'), events:{click:function(){
-
-                    if(positionList.length){
-                        displayHelp(positionList.shift());
-                    }else{
-                        finishTutorial();
-                        popover.hide();
-                    }
-
-                }}}),
-                anchor:UIPopover.AnchorTo(anchorTo)
-               });
-
-               popover.show();
-
-            }
-            displayHelp(positionList.shift());
+</script>
 
 
-        }else{
-            
-            finishTutorial();
-        }
+<script type="text/javascript">
+/**
+ * Custom Cluster Settings.
+ */
 
 
-    });
+if(window.Cluster){
+Cluster.Symbol=ClusterSymbol;
+ClusterSymbol.IconScale=function(sum){
+   return 20+(5*Math.log(sum)/Math.log(2));
+};
+ClusterSymbol.IconStyle=function(name){
+   //expect to be bound to ClusterSymbol object
+   if(name=="hover"){
+
+      return {
+            path: google.maps.SymbolPath.CIRCLE,
+            fillColor:"rgb(130, 51, 130)",
+            fillOpacity:0.7,
+            strokeWeight:1.5,
+            strokeColor:"rgb(130, 51, 130)",
+            labelOrigin:google.maps.Point(0, 0)
+      };
+
+
+   }else{
+
+
+      return {
+        path: google.maps.SymbolPath.CIRCLE,
+        fillColor:"#0A79B1",
+        fillOpacity:0.4,
+        strokeWeight:1.5,
+        strokeColor:"#0A79B1",
+        labelOrigin:google.maps.Point(0, 0)
+
+    };
+
+   }
+};
+
+}else{
+    setTimeout(start,100);
+}
+
+</script>
+
+
+
+
+<script type="text/javascript">
+/**
+ * Tutorial Cluster Settings.
+ */
+
+
+
 
 
 </script>
+
+
+
+
+
+
+
